@@ -1,0 +1,445 @@
+1-oct-2018;
+
+declare
+ empname emp.ename%type;
+ empid emp.empno%type;
+begin
+ select ename,empno into empname,empid from emp where empno=7534;
+ dbms_output.put_line('Employee name: '||empname||' Employee id:'||empid);
+end;
+/
+
+
+if then
+______
+ declare num number(10):=10;
+begin
+if (num!=0) then
+dbms_output.put_line('not zero');
+end if;
+end;
+/
+
+if then else
+------
+declare num number(10):=9;
+begin
+if(mod(num,2)=0) then
+	dbms_output.put_line('even');
+else
+	dbms_output.put_line('odd');
+end if;
+end;
+/
+
+if elsif else
+-------------
+declare
+ num number(5) := &num;
+begin
+ if(mod(num,2)=0) then
+	dbms_output.put_line('even');
+ elsif(mod(num,2)=1) then
+	dbms_output.put_line('odd');
+ else
+	dbms_output.put_line('invalid');
+end if;
+end;
+/
+
+example with if elsif else
+------
+
+declare
+ marks number(10) := &marks;
+begin
+ if(marks>=90 and marks<=100) then
+	dbms_output.put_line(' Grade A');
+ elsif(marks>=80 and marks<90) then
+	dbms_output.put_line('Grade B');
+ elsif(marks>=70 and marks<80) then
+	dbms_output.put_line('Grade C');
+ elsif(marks>=60 and marks<70) then
+	dbms_output.put_line('Grade D');
+ elsif(marks>100) then
+	dbms_output.put_line('INVALID MARK!');
+ else
+	dbms_output.put_line('FAIL!!');
+end if;
+end;
+/
+
+example with case stmnt
+-----
+declare
+ marks number(10) := &marks;
+begin
+case 
+ when(marks>=90 and marks<=100) then
+	dbms_output.put_line(' Grade A');
+ when(marks>=80 and marks<90) then
+	dbms_output.put_line('Grade B');
+ when(marks>=70 and marks<80) then
+	dbms_output.put_line('Grade C');
+ when(marks>=60 and marks<70) then
+	dbms_output.put_line('Grade D');
+ when(marks>100) then
+	dbms_output.put_line('INVALID MARK!');
+ when(marks<60) then
+	dbms_output.put_line('FAIL!!');
+end case;
+end;
+/
+
+with default case else
+------
+
+declare
+ marks number(10) := &marks;
+begin
+case 
+ when(marks>=90 and marks<=100) then
+	dbms_output.put_line(' Grade A');
+ when(marks>=80 and marks<90) then
+	dbms_output.put_line('Grade B');
+ when(marks>=70 and marks<80) then
+	dbms_output.put_line('Grade C');
+ when(marks>=60 and marks<70) then
+	dbms_output.put_line('Grade D');
+ when(marks<60) then
+	dbms_output.put_line('FAIL!!');
+ else
+	dbms_output.put_line('INVALID MARK!');
+end case;
+end;
+/
+
+
+example 2
+-----------
+declare 
+ month varchar2(30):= &month;
+begin
+ case month
+ when 'jan' or 'mar' or 'may' or 'jul' or 'aug' or 'oct' or 'dec' then
+	dbms_output.put_line('Number of days is 31 days');
+  when 'feb' then
+	dbms_output.put_line('Number of day in feb is 28/29 days');
+ when 'apr' or 'jun' or 'sep' or 'nov' then
+	dbms_output.put_line('Number of day in mar is 31 days');
+ else 	 
+	dbms_output.put_line('invalid month');
+end case;
+end;
+/
+
+
+
+
+
+declare 
+ month varchar2(30):= &month;
+begin
+ case month
+ when 'jan' then
+	dbms_output.put_line('Number of days is 31 days');
+  when 'feb' then
+	dbms_output.put_line('Number of day in feb is 28/29 days');
+ when 'mar' then
+	dbms_output.put_line('Number of day in mar is 31 days');
+ when 'apr' then
+	dbms_output.put_line('Number of day in apr is 30 days');
+ when 'may' then
+	dbms_output.put_line('Number of day in may is 31 days');
+ when 'jun' then
+	dbms_output.put_line('Number of day in jun is 30 days');
+ when 'jul' then
+	dbms_output.put_line('Number of day in jul is 31 days');
+ when 'aug' then
+	dbms_output.put_line('Number of day in aug is 31 days');
+ when 'sep' then
+	dbms_output.put_line('Number of day in sep is 30 days');
+ when 'oct' then
+	dbms_output.put_line('Number of day in oct is 31 days');
+ when 'nov' then
+	dbms_output.put_line('Number of day in nov is 30 days');
+ when 'dec' then
+	dbms_output.put_line('Number of day in dec is 31 days');
+ else 	 
+	dbms_output.put_line('invalid month');
+end case;
+end;
+/
+
+LOOPING STATEMENTS
+-----------------
+1.------LOOP
+
+declare 
+	num number(5):=1;
+begin
+	LOOP
+		dbms_output.put_line(num);
+		num:=num+1;
+		exit;
+	end loop;
+end
+
+2.-------WHILE
+
+syntax:
+ while cond loop
+ stmt;
+end loop
+
+example:
+
+ declare
+	num number(5):=1;
+begin
+	while num<=10 loop
+	dbms_output.put_line(num);
+	num:=num+1;
+	end loop;
+end;
+
+3.---------FOR LOOP
+
+syntax:
+for index_var in lower..upper loop
+	stmts;
+end loop;
+
+Example:
+
+begin
+for num in 1..10 loop
+	dbms_output.put_line(num);
+	num:=num-1;
+end loop;
+ end;	
+/
+
+Example:
+
+begin
+for num in 1..10 loop
+	dbms_output.put_line(num);
+	num:=num-1;
+end loop;
+ end;	
+/
+Example to print in reverse:
+
+begin
+for num in reverse 1..10 loop
+	--joy
+	dbms_output.put_line(num);
+	end loop;
+ end;	
+/
+
+
+
+PROCEDURE
+-------------
+Create or replace procedure print_hello is
+msg varchar2(30):='hello,good morning';
+begin 
+	dbms_output.put_line(msg);
+end;
+/	
+
+two types of procedure 
+in parameter procedure and out parameter procedure
+
+IN PARAMETER
+---------
+ example :
+ create or replace procedure print_name_salary(id number) is
+  name emp.ename%type;
+  salary emp.sal%type;
+  begin
+  select ename,sal into name,salary from emp where empno=id;
+  dbms_output.put_line(name||' '|| salary);
+  end;
+  /
+OUT PARAMETER
+---------------
+example:
+create or replace procedure print_emp(id IN number,name out varchar2) is
+begin
+	select ename into name from emp where empno=id;
+	dbms_output.put_line('HEllo, mr. '||name);
+	end;
+/	
+
+create or replace procedure print_emp(id in number) is
+name emp.ename%type;
+begin
+	select ename into name from emp where empno=id;
+	dbms_output.put_line('HEllo, mr. '||name);
+	end;
+/
+
+
+create or replace procedure printemp is
+name varchar2(30);
+begin 
+ print_emp(7534,'name');
+end;
+/
+INOUT----
+
+FUNCTION
+-------------------\
+example:
+create or replace function print_msg return varchar2 is
+begin
+return 'hello , good afternoon';
+end;
+/
+
+declare 
+ msg varchar2(30);
+ begin
+ msg:=print_msg;
+ dbms_output.put_line(msg);
+ end;
+ /
+ 
+ create or replace function print_sal(id IN number) return number is
+ esal emp.sal%type;
+ begin
+  select sal into esal from emp where empno=id;
+  return(esal);
+ end;
+/
+declare
+begin
+dbms_output.put_line(print_sal(7534));
+end;
+/ 
+
+
+example:
+create or replace procedure check_age(age IN number) is
+begin
+	if(age-18 >= 0) then
+		dbms_output.put_line('CONGRATS! YOU ARE ELIGIBLE TO VOTE! PROCEED TO VOTER REGISTRATION..');
+	else
+		dbms_output.put_line('SORRY! WAIT FOR '||(18-age)||' YEARS TO VOTE');
+	end if;
+end;
+/	
+
+begin
+check_age(&age);
+end;
+/
+
+
+Exception handling in pl/sql
+-------------------------------------
+-> Custom exception
+step 1 declare an exception
+step 2 Raise an exception
+step 3 handle exception
+
+example:
+create or replace procedure vote_age(age in number) is
+InvalidAgeException exception;
+begin
+if age<18 then
+	raise InvalidAgeException;
+end if;
+exception
+	when InvalidAgeException then
+	dbms_output.put_line('try after '||(18-age)||' years');
+end;
+/
+
+->Predefined exception
+example:
+create or replace procedure print_emp_sal is
+esal number(9,2);
+begin
+select sal into esal from emp where empno=1234;
+dbms_output.put_line('sal');
+exception
+	when no_data_found then
+		dbms_output.put_line('no data for'||1234);
+		end;
+		/
+
+		
+example:
+
+create or replace procedure add_column is
+begin
+execute immediate 'alter table emp add age number(5)' ;
+end;
+/
+
+
+
+
+TRIGGERS
+----------------------------
+insert update and delete
+keywords( only for row level trigger)== :OLD  , :NEW
+
+TYPES 1) statement level  2)row level
+
+example:
+
+create table salary_history(  
+id     number(9,2),  
+ename      varchar2(30),  
+previous_sal     number(9,2),   
+latest_sal        number(9,2)  
+);
+
+create or replace trigger salary_trigger 
+before/after insert/update/delete of sal on emp
+for each row 
+ begin
+ insert into salary_history values(:old.empno, :old.ename, :old.sal, :new.sal);
+ end;
+ /
+ 
+ 
+ o-valid x-invalid
+				:OLD	:NEW
+ BEFORE INSERT    x       o
+ BEFORE DELETE    o       x
+ BEFORE UPDATE	  o       o
+ AFTER INSERT     x       o
+ AFTER DELETE     o       x
+ AFTER UPDATE     o       o
+ 
+ --------------------------------------------------------------------------------------------------------------------------------------------
+ 
+ 3- oct-2018
+ 
+ HTML5
+ ----------
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
