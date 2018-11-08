@@ -1,0 +1,400 @@
+JSP
+______________________________________________________________________________________________________________________
+
+Q. What will be the output of the following JSP code assuming these are the only two 
+statements in JSP page? 
+
+<%! Date today = new Date(); %>
+<%= today %> 
+1). System date will be displayed in the browser
+2). Exception reporting Date can not be converted in String is displayed
+3). Exception report "Date can not be resolved" is displayed
+4). Todays' date is displayed.
+Solution :
+option [3] is correct
+
+
+Q. Which of the following are not valid JSP code fragments?           
+1). <%@page import="java.util.*" %>
+2). <%java.util.Date d = new java.util.Date(); out.println(d);   %>
+3). <%! int c;%>
+4). <%= String val = request.getParameter("hello");   out.println(val);  %>
+Solution :
+option [4] is correct
+
+
+Q. What will be the output of the following JSP code when requested in a browser? 
+<%= "Hello, Welcome to JSP" ; %>           
+1). Browser displays "Hello, Welcome to JSP"
+2). Browser displays blank page
+3). Browser displays exception report
+4). Browser displays Hello and error message
+Solution :
+option [3] is correct
+
+
+Q. Which of the following attribute defines a jsp page as an exception handling pages?
+1). exceptionPage
+2). isErrorPage
+3). isExceptionPage
+4). errorPage
+Solution :
+option [2] is correct
+
+
+Q. What is the best option in JSP syntax for : out.println("JSP is meant for minimal of 
+Java code"); 
+1). <% "JSP is meant for minimal of Java code"; %>
+2). <% String jspStr = "JSP is meant for minimal of Java code";  out.println(jspStr);%>
+3). <%= "JSP is meant for minimal of Java code" %>
+4). <%= "JSP is meant for minimal of Java code" ; %>
+Solution :
+option [3] is correct
+
+
+Q. Application is an implicit object of which interface or class?
+1). HttpSession
+2). GenericServlet
+3). ServletConfig
+4). ServletContext
+Solution :
+option [4] is correct
+
+
+Q. If you want to declare class variable in JSP, within what type of tags must you 
+declare the variable?
+1). <%@ … %>
+2). <%!.... %>
+3). <%.....%>
+4). <%-- --%>
+Solution :
+option [2] is correct
+
+
+Q. Which of the following are the attributes of page directive?           
+1). flush
+2). buffer
+3). textinfo
+4). contentType
+Solution :
+option [2,4] are correct
+
+
+Q. Given 
+
+a. jspInit()
+b. jspDestroy()
+c. Transalation
+d. _jspService()
+e. Compilation
+
+What is the proper order of execution?          
+1). a b c d e
+2). c e a d b
+3). e c a d b 
+4). e c a b d 
+Solution :
+option [2] is correct
+
+
+Q. Which of the following are not valid?
+1). <% @page import="java.util.*,java.io.*"%>
+2). <% @page errorPage="true" %>
+3). <% @page isErrorPage="error.jsp" %>
+4). <% @page include="pic1.jpg"%>
+Solution :
+option [2,3,4] are correct
+
+
+Q. Which set of tags/attributes  are used to set all the properties of a bean to the form 
+parameters where request parameter and bean properties match ?  
+1). <jsp:setProperty name="beanName" 
+     property="propName" param="paramName"/>
+2). <jsp:setProperty name="beanName" 
+     property="*"/>
+3). <jsp:setProperty name="beanName" 
+     property="propName" 
+     value="<%= expression %>"/>
+4). <jsp:setProperty name="beanName"
+     property="propName" value="string constant"/> 
+Solution :
+option [2] is correct
+
+
+Q. JavaBeans methods are all _________________ .
+1). Identical to methods of other Java classes
+2). Event
+3). Listener Methods
+4). Properties
+Solution :
+option [1] is correct
+
+
+Q. Consider the following scenario:
+
+Statement A: <jsp:include/> standard action inserts the response of a jsp page at rutime.
+Statement B: include directive inserts the source of a jsp page at translation time.
+
+Which one of the following is correct with respect to the above? 
+1). Statement A is true and B is false
+2). Statement A is false and B is false
+3). Statement A is true and B is true
+4). Statement A is false and B is true
+Solution :
+option [3] is correct
+
+
+Q. Which of the following are attributes of  <jsp:useBean> standard action?
+1). scope
+2). bean
+3). type
+4). beanName
+Solution :
+option [1,3,4] are correct
+
+
+Q. Given:
+
+<c:forEach var="x" begin="1" end="20" step="3">
+${x}
+</c:forEach>
+
+What will be the output?    
+1). 1 4 7 10 13 16 19 
+2). 0 3 6 9 12 15 18
+3). 1 3 6 9 12 15  18
+4). None of the above
+Solution :
+option [1] is correct
+
+
+
+Q. When a _____________ is invoked, it causes the web container to return to the 
+browser indicating that a new URL should be requested. 
+1). forward action
+2). sendRedirect() method
+3). include action
+4). none of the above
+Solution :
+option [2] is correct
+
+
+Q. <jsp-property-group>
+    <url-pattern>/others/checkScripting.jsp</url-pattern>
+    <scripting-invalid>false</scripting-invalid>
+   </jsp-property-group>
+  </jsp-config>
+
+What is the purpose of the above JSP configuration tag in Web.xml file?
+1). The scripting is fobidden since value for scripting-invalid
+attribute is false
+2). Blank page will be displayed
+3). The scripting is not forbidden  since value for scripting-invalid
+attribute is false
+4). The Jsp Compiler will give the error for it.
+Solution :
+option [4] is correct
+
+
+Q. Which tags will be used to pass the request object of the current page to CourseDets.jsp 
+page with coursename as  J2EE?
+1). <%@ include file = "CourseDets.jsp" %> <jsp:param name = coursename value = "J2EE" />
+2). <jsp:forward page="/CourseDets.jsp"> 
+      <jsp:param name="coursename" value="J2EE" /> 
+     </jsp:forward>
+3). <jsp:forward page="/CourseDets.jsp"> 
+      <jsp:param coursename = "J2EE" /> 
+     </jsp:forward>
+4). All of the above 
+Solution :
+option [2] is correct
+
+
+Q. What does the flush attribute of <jsp:include> action represent ? 
+1). a mechanism for including additional static and dynamic resources in the current JSP page
+2). an optional Boolean value, stating whether or not the buffer should be flushed.
+3). the relative URL of the resource to be included.
+4). a mandatory Boolean value, stating whether or not the buffer should be flushed.
+Solution :
+option [4] is correct
+
+
+Q. Set of web designers want to design a shopping site. Task is to display all the items 
+which have been purchased. No one has programming language , but can use tag library. 
+They have not been provided with any kind of domain functionality tags. How can they 
+solve this problem? 
+1). Usage of JSTL <c:forEach> tag
+2). Code fragment in Scriptlets
+3). <xsl:for>
+4). None of the above
+Solution :
+option [1] is correct
+------------------------------------------------------------------------------------------------------------------
+
+SERVLETS
+
+____________________________________________________________________________________
+
+Q. Fill in the blanks to complete following:
+
+public class DemoServlet extends HttpServlet {
+  public void doGet(HttpServletRequest req, HttpServletResponse res)
+                      throws ServletException, IOException {
+       res.setContentType("text/plain");
+        ___________ out = res.getWriter();
+        Enumeration headernames = req.getHeaderNames();
+        while (headernames.___________) {
+              String name = (String) headernames.nextElement();
+              String value = req.________
+              if (value != null) 
+                  out.println(name + ": " + value);
+         }
+  }
+1). PrintWriter, hasMoreElements();, getHeader(name);
+2). getRemoteHost();,getRemoteAddr();,getRemoteAddres();
+3). StringBuffer, hasNextElement(), getValue()
+4). PrintWriter, hasNext();, getParameter(name);
+Solution :
+option [1] is correct
+
+
+
+Q. What does the following code do? 
+
+<FORM action="/EchoServlet" ENCTYPE="multipart/form-data" method="post">
+       .................. 
+<INPUT name="file" type="file">
+1). Allows to upload file of any type
+2). Allows to download file of any type
+3). Allows to select a file type
+4).  All of the above
+Solution :
+option [1] is correct
+
+
+
+Q. Which is the correct annotation to define a servlet initialization parameter?        
+1). @WebServlet(
+  urlPatterns = { "/DemoServlet" }, 
+  initParamaters = { 
+    @WebInitParam( name = "length", value = "10"), 
+    @WebInitParam(name = "breadth", value = "20")
+  })
+
+2). @WebServlet(
+  urlPatterns = { "/DemoServlet" }, 
+  initParam = { 
+    @WebInitParams((name = "length", value = "10"), 
+(name = "breadth", value = "20")
+  })
+
+3). @WebServlet(
+  urlPatterns = { "/DemoServlet" }, 
+  initParams = { 
+    @WebInitParam( "length",  "10"), 
+    @WebInitParam( "breadth", "20")
+  })
+
+4). @WebServlet(
+  urlPatterns = { "/DemoServlet" }, 
+  initParams ={ ("length", "10"), 
+ ("breadth","20")
+  }
+  })
+
+Solution :
+option [1] is correct
+
+
+Q. Match the following: 
+
+a.getParameter()                     
+b.getParameterNames()           
+c.getParameterValues()          
+
+i. String[]
+ii. String
+iii. Enumarator
+1). a.i
+b.ii
+c.iii
+2). a.ii
+b.i
+c.iii
+3). a.ii
+b.iii
+c.i
+4). a.i
+b.iii
+c.ii
+Solution :
+option [3] is correct
+
+
+Q. Given:
+
+ i. load the servlet class
+ii. init()
+iii. destroy()
+iv. service()
+ v. instantiate 
+
+Life cycle of Servlet, arrange it in proper order of execution.   
+1). i, ii, iv, iii, v
+2). i, v, ii, iv,iii
+3). v, i, ii, iv,iii
+4). i,v,iv,ii,iii
+Solution :
+option [2] is correct
+
+
+Q. When using HTML forms which of the folowing is true for POST method?  
+1). POST allows users to bookmark URLs with parameters. 
+2). The POST method should not be used when large amount of data needs to be transferred
+3). POST allows secure data transmission over the http method.
+4). POST method sends data as payload, in the body of the request
+Solution :
+option [4] is correct
+
+Q. Which of the following methods in an HttpServlet should be overridden if required?
+
+1)init()
+2)service(HttpServletRequest,HttpServletResponse)
+3)destroy()
+4)doGet(HttpServletRequest,HttpServletResponse)        
+1). 1,2,3
+2). 1,3,4
+3). 2,3,4
+4). 1,2,4
+Solution :
+option [2] is correct
+
+
+
+Q. ______ method returns the extra path information translated to a real file system path.         
+1). HttpServletRequest.getPathTranslated( ) 
+2). HttpServletRequest.getPathInfo( )
+3). HttpServletRequest.getParameterValues
+4). None of the above
+Solution :
+option [1] is correct
+
+
+
+Q. The HTTP request headers 'accept' specifies ______.          
+1). Information about client software
+2). MIME types that client accepts
+3).  language(s) that client can receive
+4). encoding format that client can use
+Solution :
+option [2] is correct
+
+
+
+Q. The getParameter() method belongs to _______.           
+1). Servlet
+2). ServletRequest
+3). ServletResponse
+4). All of the above
+Solution :
+option [2] is correct
