@@ -1,0 +1,75 @@
+i.	Users: user_id(varchar(4)), password (varchar(7)), role(varchar(10),  user_name(varchar (20)), mobile_no(varchar(10)), phone(varchar(10)), address (varchar(25)), email (varchar(15))
+ii.	Hotel: hotel_id(varchar(4)), city (varchar(10)), hotel_name(varchar (20)), address(varchar(25)), description varchar(50)), avg_rate_per-night (number(m,n)), phone_no1(varchar(10)), phone_no2(varchar(10)), rating(varchar(4)), email (varchar(15)), fax (varchar(15))
+
+iii.	Note : Description here could be a brief teaser about the hotel like – “Centrally located in the main city centre at Shivajinagar Railway Station, this budget accommodation is designed with spacious rooms…”. It could also give some special offers etc.
+
+iv.	RoomDetails: hotel_id(varchar(4)),  room_id (varchar(4)),  room_no(varchar(3)), room_type(varchar(20)), per_night_rate (number(6,2)), availability (Boolean), photo (blob))
+
+v.	Note : Room_type could be Standard non A/C room, Standard A/C room, Executive A/C room, Deluxe A/C room etc.
+
+vi.	BookingDetails: booking_id(varchar(4)), room_id(varchar(4)),  user_id(varchar(4)), booked_from (date), booked_to(date), no_of_adults, no_of_children, amount(number(6,2))
+
+_______________________________________________________________
+SQL Queries
+_____________________________________________________________
+
+
+
+create table Users(user_id varchar(4),password varchar(7),role varchar(10),user_name varchar(20),mobile_no varchar(10),phone varchar(10),address varchar(25),email varchar(15));
+
+create table Hotel(hotel_id varchar(4),city varchar(10),hotel_name varchar(20),address varchar(25),description varchar(50),avg_rate_per_night number(6,2),phone_no1 varchar(10),phone_no2 varchar(10),rating varchar(4),email varchar(15),fax varchar(15));
+
+create table RoomDetails(hotel_id varchar(4),room_id varchar(4),room_no varchar(3),room_type varchar(20),per_night_rate number(6,2),availability number(1));
+
+create table BookingDetails(booking_id varchar(4),room_id varchar(4),user_id varchar(4),booked_from date,booked_to date,no_of_adults number(2),no_of_children number(2),amount number(6,2));
+
+
+insert into Hotel values(1002,'hyderabad','Lemon Tree','Cyber towers,Hitech City','Good Accomodation',1000,9001046464,9246884654,'5','info@lt.com',1231132);
+
+insert into Hotel values(1001,'hyderabad','Sheraton','Wipro Circle,Gachibowli','Good Accomodation',1000,9001046464,9246884654,'5','info@st.com',1231132);
+
+create sequence bookingid start with 1001 increment by 1;
+
+create sequence userid start with 1001 increment by 1;
+
+insert into Users values(userid.nextval,'123','customer','joy','9000000000','8888888888','hyderabad','joy@joy.com');
+
+insert into Roomdetails values(1001,1101,101,'Std non A/C room',1000,1);
+insert into Roomdetails values(1001,1102,102,'Exce A/C room',1500,1);
+insert into Roomdetails values(1001,1103,103,'Std A/C room',2000,1);
+insert into Roomdetails values(1001,1104,104,'Dlx A/C room',2500,1);
+insert into Roomdetails values(1001,1105,201,'Std non A/C room',1000,1);
+insert into Roomdetails values(1001,1106,202,'Exce A/C room',1500,1);
+
+
+insert into Roomdetails values(1002,1201,101,'Std non A/C room',1000,1);
+insert into Roomdetails values(1002,1202,102,'Exce A/C room',1500,1);
+insert into Roomdetails values(1002,1203,103,'Std A/C room',2000,1);
+insert into Roomdetails values(1002,1204,104,'Dlx A/C room',2500,1);
+insert into Roomdetails values(1002,1205,201,'Std non A/C room',1000,1);
+insert into Roomdetails values(1002,1206,202,'Exce A/C room',1500,1);
+
+
+
+
+
+insert into BookingDetails values(bookingid.NEXTVAL,'1101','1001',TO-DATE('25-12-2018','dd-mm-yyyy'),TO-DATE('25-12-2018','dd-mm-yyyy')+5,'2','0','200');
+
+
+
+<servlet>
+    <servlet-name>adminaddhotelinfo</servlet-name>
+    <servlet-class>com.cg.hotelbooking.AdminAddHotelInfo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>adminaddhotelinfo</servlet-name>
+    <url-pattern>/adddescription</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>adminupdatehotelinfo</servlet-name>
+    <servlet-class>com.cg.hotelbooking.AdminUpdateHotelInfo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>adminupdatehotelinfo</servlet-name>
+    <url-pattern>/updatedescription</url-pattern>
+  </servlet-mapping>
